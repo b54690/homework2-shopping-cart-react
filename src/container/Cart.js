@@ -17,7 +17,7 @@ export default class Cart extends PureComponent {
       <div>
         <ul className="Cart">
           {products.map((product, index) =>
-            (<CartItem key={index} onClick={incrementQuantity} 
+            (<CartItem key={index} incrementQuantity={incrementQuantity}
               { ...product } />))}
         </ul>
       </div>

@@ -7,26 +7,33 @@ export const cartDetail = PropTypes.shape({
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   quantity: PropTypes.number.isRequired,
+  id:PropTypes.number.isRequired,
 })
 
 
 class CartItem extends PureComponent {
+
 static propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
   quantity: PropTypes.number.isRequired,
+  incrementQuantity: PropTypes.func.isRequired,
 }
 
 render() {
 
-  const { name, price, quantity } = this.props
+  const { id, name, price, quantity, incrementQuantity } = this.props
+
+  console.log(id)
+  console.log(quantity)
 
   return(
     <ul className="CartItems">
       <li className="Name">{name}</li>Price:
       <li className="Price">{price}</li>Quantity:
       <li className="Quantity">{quantity}</li>
-      <OnPlusClick onClick={this.incrementQuantity} />
+      <OnPlusClick id={id} quantity={quantity} onClick={incrementQuantity} />
     </ul>
 
   )

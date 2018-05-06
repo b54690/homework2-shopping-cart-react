@@ -13,13 +13,24 @@ const products = [
 class App extends Component {
   state = { products }
 
-  incrementQuantity = (id, quantity, onClick) => {
-    this.setState.onClick(id)({ quantity: quantity + 1})
+  incrementQuantity = (id, quantity) => {
+    products.map((product) => {
+      if (product.id === id) { quantity = quantity + 1 }})
+    //for (var i in products) { 
+    //if (products[i].id === id){
+    //products[i].quantity = quantity + 1; 
+    //} 
+    //}
+    this.setState({products: products})
+    //console.log(quantity)
+    //console.log(id)
+    //console.log(products)
+    //console.log(this.state.products)
+    //HARRY COMMENT - issues rerendering this data in the app, although coming through in console log however. 
   }
 
-  totalValue = (id, price, quantity) => {
-    this.setState.onc(id)({ price: price * quantity})
-  }
+  totalValue() {products.reduce((sum, i) => (
+    sum += i.count * i.price), 0)}
 
 
   render() {
